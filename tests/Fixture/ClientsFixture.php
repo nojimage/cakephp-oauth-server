@@ -52,6 +52,18 @@ class ClientsFixture extends TestFixture
             ]),
         ];
 
+        $this->records[] = [
+            'id' => 'Public',
+            'client_secret' => '',
+            'name' => 'Public Client',
+            'redirect_uri' => json_encode(['http://www.example.com']),
+            'grant_types' => json_encode([
+                'password',
+                'authorization_code',
+                'refresh_token',
+            ]),
+        ];
+
         parent::init();
     }
 }
