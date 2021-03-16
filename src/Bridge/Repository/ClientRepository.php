@@ -43,9 +43,7 @@ class ClientRepository implements ClientRepositoryInterface
         $conditions = [
             $this->table->getPrimaryKey() => $clientIdentifier,
         ];
-        if ($clientSecret !== null) {
-            $conditions[$this->table->aliasField('client_secret')] = $clientSecret;
-        }
+        $conditions[$this->table->aliasField('client_secret')] = (string)$clientSecret;
 
         $client = $this->table->find()->where($conditions)->first();
         /* @var $client Client|null */
